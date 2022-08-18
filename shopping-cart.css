@@ -1,0 +1,419 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+}
+:root{
+    --after-content:'2';
+}
+body{
+    background: rgb(249, 242, 230);
+    z-index: -1;
+}
+.logo img, nav img{
+    height: 3rem;
+}
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.logo h1{
+    font-size: 4rem;
+    font-family: 'Square Peg', cursive;
+
+}
+button{
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+
+/* header styling  */
+.main-head{
+    
+    background: white;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+    box-shadow: 0px 10px 10px rgb(0,0,0,0.1), 0px 20px 20px rgb(0,0,0,0.1) ;
+
+}
+nav {
+    display: flex;
+    width: 90%;
+    margin: auto; 
+    padding: 2rem;
+    min-height: 15vh;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+nav .logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    flex: 1 1 40rem;
+}
+nav ul{
+    display: flex;
+    flex: 2 1 40rem;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+nav ul li{
+    font-size: 1.2rem;
+}
+
+
+ul{
+    list-style: none;
+}
+
+
+/* Shopping Cart Styling */
+.background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 75vh;
+
+}
+/* .shopping-cart img{
+    height: 4rem;
+    
+} */
+.whole-cart-window{
+    background: white;
+    position: absolute;
+    top: 9vh;
+    height: 70vh;
+    max-height: 70vh;
+    right: 16.5rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    box-shadow: 0px 10px 10px rgb(0,0,0,0.1), 0px 20px 20px rgb(0,0,0,0.1) ;
+    
+    
+    
+}
+.whole-cart-window h2{
+    font-size: x-large;
+    padding: 15px 10px;
+    font-weight: normal;
+    text-align: left;
+    font-size: 2.7rem;
+    text-align: center;
+    font-weight: bolder;
+
+
+
+}
+.cart-wrapper{
+    overflow-y: auto;
+    height: 30rem;
+}
+.cart-item{
+   display: grid;
+   grid-template-columns: 3fr 6fr 1fr;
+   padding: 5% 2%;
+   border-bottom: solid 1px lightgrey;
+}
+.subtotal{
+    text-align: right;
+    font-size: 1.5rem;
+    padding: 1%;
+}
+.checkout{
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    background: gold;
+    font-size: medium;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    transition: all 0.6s ease;
+}
+.checkout:hover{
+    background: goldenrod;
+}
+.view-cart{
+    display: none;
+    background: white;
+    /* border: .2rem solid goldenrod; */
+    color: white;
+}
+.cancel span{
+    cursor: pointer;
+}
+.cart-item{
+    text-align: left;
+    height: 1rem;
+    font-size: 1.2rem;
+
+}
+.cart-wrapper img{
+    height: 6rem;
+    padding-left: 11rem;
+    /* padding-bottom: 15rem; */
+}
+
+.cart-item .details{
+    padding-left: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.cart-item h3{
+    text-align: center;
+    margin-bottom: 1%;
+    
+}
+.cart-item p{
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+}
+.cart-item .description{
+    display: none;
+}
+.cart-item .price{
+    display: block;
+    text-align: right;
+    padding-left: 29rem;
+
+    /* margin-top: 35%; */
+}
+.quantity{
+    display: block;
+    padding-left: 22rem;
+    /* margin-top: 1%; */
+}
+.fa-window-close{
+    color: goldenrod;
+}
+.cancel{
+    text-align: right;
+}
+.details input{
+    border: none;
+
+}
+.hide{
+    display: none;
+}
+.non-empty::after{
+    content: var(--after-content);
+    font-size: 1.5rem;
+    width: 1.5rem;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: -30px;
+    right: 10%;
+    background: red;
+    border-radius: 50%;
+}
+.table-header{
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 20rem;
+    justify-content: space-around;
+    align-items: center;
+    max-height: 5vh;
+    width: 100%;
+    background: gold;
+    color: black;
+    padding: 3rem;
+    box-shadow: 0px 10px 10px rgb(0,0,0,0.1), 0px 20px 20px rgb(0,0,0,0.1) ;
+    font-size: 1.8rem;
+
+}
+
+
+
+/* table{
+    /* margin-right: 3rem ; */
+    /* margin-left: 11.7rem ; */
+    /* display: flex; */
+    /* width: 70%; */
+    /* border-collapse: collapse; */
+    
+
+/* }  */
+
+
+
+/* .cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cart-info div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; 
+}
+th{
+    text-align: left;
+    
+    padding: 1rem;
+    color: white;
+    background: goldenrod;
+    font-weight: normal;
+    font-size: 1.5rem;
+
+}
+
+td{
+    padding: 1.5rem .1rem;
+    font-size: 1.5rem;
+}
+td input{
+    width: 40px;
+    height: 30px;;
+    padding: 5px;
+
+}
+td a{
+    color: goldenrod;
+    /* text-align: center; 
+}
+td img{
+    height: 10rem;
+    margin-right: 1rem;
+}
+small{
+    font-size: 1.4rem;
+
+
+}
+
+td p{
+    font-size: 1.5rem;
+}
+.total-price{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.total-price table{
+    font-size: 1.5rem;
+    border-top: 0.3rem solid goldenrod;
+    width: 100%;
+    max-width: 390px;
+    margin-right: 20.5rem;
+}
+
+td:last-child{
+    text-align: right;
+}
+th:last-child{
+    text-align: right;
+}
+.total-quantity td{
+    font-size: 3rem;
+} */
+/* .proceed{
+    margin: 2rem;
+    border-radius: 50px;
+    background: goldenrod;
+}
+.proceed span{
+    padding: .5rem;
+} */
+
+
+
+/* Footer Styling  */
+
+footer{
+    /* display: none; */
+    color: white;
+    margin-top: 10rem;
+    background: black;
+}
+.footer-wrapper {
+    display: flex;
+    padding: 2rem;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    max-height: 15vh;
+    flex-wrap: wrap;
+}
+.footer-logo{
+    display: flex;
+    flex: 1 1 20rem;
+    align-items: center;
+
+}
+.footer-logo #footer-brand{
+    font-family: 'Square Peg', cursive;
+    font-size: 4rem;
+
+
+}
+.footer-logo img{
+    height: 4rem;
+    
+    
+}
+.social-media{
+    display: flex;
+    align-items: center;
+
+}
+
+.social-media img{
+    height: 4rem;
+    margin: 2rem;
+
+}
+/* Media Query  */
+@media screen and (max-width: 970px){
+    .products-in-cart{
+        /* width: 60%; */
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+    td:last-child{
+        text-align: right;
+    }
+    th:last-child{
+        text-align: right;
+    }
+    .total-price{
+        /* display: flex;
+        width: 100%; */
+        justify-content: center;
+        align-items: center;
+    }
+    .total-price table{
+        margin-right: 0rem;
+    }
+    
+  
+    
+}
+
+
