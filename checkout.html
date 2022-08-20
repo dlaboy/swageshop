@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="./checkout.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800&family=Square+Peg&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="./img/bag.png" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="main-head">
+      <nav>
+        <div class="logo">
+          <img src="./img/bag.png" alt="" />
+          <h1 id="logo">SwagEShop</h1>
+        </div>
+
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="#account">Account</a></li>
+          <li class="shopping-cart">
+            <a class="shopping-icon" href="#"
+              ><img src="./img/shopping-cart.png" alt=""
+            /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="background">
+      <section class="totals">
+        <div class="whole-cart-window hide">
+          <h2>Shopping Cart</h2>
+          <div class="cart-wrapper"></div>
+          <div class="subtotal">Subtotal: $0.00</div>
+          <div class="tax">Tax: $0.00</div>
+          <div class="total">Total: $0.00</div>
+        </div>
+      </section>
+      <section class="right-side">
+        <section class="shipping">
+          <h1>Enter Your Information Here</h1>
+          <form action="" method="post">
+            <div class="first-name-form">
+              <label for="first-name">First Name:</label>
+              <br />
+              <input id="first-name" type="text" name="first-name" required />
+            </div>
+            <div class="last-name-form">
+              <label for="last-name">Last Name:</label>
+              <br />
+              <input id="last-name" type="text" name="last-name" required />
+            </div>
+            <div class="address-form">
+              <label for="address">Address:</label>
+              <br />
+              <input id="address" type="text" name="address" required />
+            </div>
+            <div class="city-form">
+              <label for="city">City:</label>
+              <br />
+              <input id="city" type="text" name="city" required />
+            </div>
+            <div class="country-form">
+              <label for="country">Country:</label>
+              <br />
+              <input id="country" type="text" name="country" required />
+            </div>
+            <div class="postal-code-form">
+              <label for="postal-code">Postal Code:</label>
+              <br />
+              <input id="postal-code" type="text" name="postal code" required />
+            </div>
+          </form>
+        </section>
+        <section class="payment-methods">
+          <div class="payment-shit">
+            <h1>Payment Methods</h1>
+            <div id="paypal-button-container"></div>
+            <!-- Sample PayPal credentials (client-id) are included -->
+            <script
+              src="https://www.paypal.com/sdk/js?client-id=AfRYEBCJFPV7Sr-bX-aQMFpnQvbUM7A4eLFOz48mSaRnaxUS5fRFxpoG1tLnd_N2PmvL61UkmDtolYQ3&currency=USD&intent=capture"
+              data_source="integrationbuilder"
+            ></script>
+
+            <script>
+              const fundingSources = [
+                paypal.FUNDING.PAYPAL,
+                paypal.FUNDING.CARD,
+              ];
+
+              for (const fundingSource of fundingSources) {
+                const paypalButtonsComponent = paypal.Buttons({
+                  fundingSource: fundingSource,
+                  // optional styling for buttons
+                  // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+                  style: {
+                    shape: "rect",
+                    height: 40,
+                  },
+
+                  // set up the transaction
+                  createOrder: (data, actions) => {
+                    // pass in any options from the v2 orders create call:
+                    // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+                    const createOrderPayload = {
+                      purchase_units: [
+                        {
+                          amount: {
+                            value: sessionStorage.getItem("total"),
+                          },
+                        },
+                      ],
+                    };
+
+                    return actions.order.create(createOrderPayload);
+                  },
+
+                  // finalize the transaction
+                  onApprove: (data, actions) => {
+                    const captureOrderHandler = (details) => {
+                      const payerName = details.payer.name.given_name;
+                      console.log("Transaction completed!");
+                    };
+
+                    return actions.order.capture().then(captureOrderHandler);
+                  },
+
+                  // handle unrecoverable errors
+                  onError: (err) => {
+                    console.error(
+                      "An error prevented the buyer from checking out with PayPal"
+                    );
+                  },
+                });
+
+                if (paypalButtonsComponent.isEligible()) {
+                  paypalButtonsComponent
+                    .render("#paypal-button-container")
+                    .catch((err) => {
+                      console.error("PayPal Buttons failed to render");
+                    });
+                } else {
+                  console.log("The funding source is ineligible");
+                }
+              }
+            </script>
+          </div>
+        </section>
+      </section>
+    </section>
+    <footer>
+      <div class="footer-wrapper">
+        <div class="footer-logo">
+          <img src="./img/bag.png" alt="" />
+          <h1 id="footer-brand">SwagEShop &copy</h1>
+        </div>
+        <div class="footer-sm">
+          <ul class="social-media">
+            <li class="facebook">
+              <a href="#"><img src="./img/facebook.png" alt="" /></a>
+            </li>
+            <li>SwagEShop</li>
+            <li class="instagram">
+              <a href="#"><img src="./img/instagram (1).png" alt="" /></a>
+            </li>
+            <li>@swageshop_pr</li>
+            <li class="whatsapp">
+              <a href="#"><img src="./img/whatsapp.png" alt="" /></a>
+            </li>
+            <li>(939)-451-4525</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      class CartItem {
+        constructor(name, description, img, price) {
+          this.name = name;
+          this.description = description;
+          this.img = img;
+          this.price = price;
+          this.quantity = 1;
+        }
+      }
+
+      class LocalCart {
+        static key = "cartItems";
+
+        static getLocalCartItems() {
+          let cartMap = new Map();
+          const cart = localStorage.getItem(LocalCart.key);
+          if (cart === null || cart.length === 0) return cartMap;
+          return new Map(Object.entries(JSON.parse(cart)));
+        }
+        static addItemToLocalCart(id, item) {
+          let cart = LocalCart.getLocalCartItems();
+          if (cart.has(id)) {
+            let mapItem = cart.get(id);
+            mapItem.quantity += 1;
+            cart.set(id, mapItem);
+          } else cart.set(id, item);
+
+          localStorage.setItem(
+            LocalCart.key,
+            JSON.stringify(Object.fromEntries(cart))
+          );
+          updateCartUI();
+        }
+        static removeItemFromCart(id) {
+          let cart = LocalCart.getLocalCartItems();
+          if (cart.has(id)) {
+            let mapItem = cart.get(id);
+            if (mapItem.quantity > 1) {
+              mapItem.quantity -= 1;
+              cart.set(id, mapItem);
+            } else cart.delete(id);
+          }
+          if (cart.length === 0) localStorage.clear();
+          else
+            localStorage.setItem(
+              LocalCart.key,
+              JSON.stringify(Object.fromEntries(cart))
+            );
+          updateCartUI();
+        }
+      }
+
+      const cartIcon = document.querySelector(".shopping-icon");
+      const wholeCartWindow = document.querySelector(".whole-cart-window");
+      wholeCartWindow.inWindow = 1;
+      const addtoCartbtns = document.querySelectorAll(".add-to-cart-btn");
+      addtoCartbtns.forEach((btn) => {
+        btn.addEventListener("click", addItemFunction);
+      });
+
+      function addItemFunction(e) {
+        const id = e.target.parentElement.parentElement.getAttribute("data-id");
+        const img = e.target.parentElement.previousElementSibling.src;
+        const name =
+          e.target.previousElementSibling.previousElementSibling
+            .previousElementSibling.textContent;
+        const des = e.target.parentElement.children[1].textContent;
+        let price = e.target.parentElement.children[2].textContent;
+        price = price.replace("$", "");
+        const item = new CartItem(name, des, img, price);
+        LocalCart.addItemToLocalCart(id, item);
+        // console.log(price)
+      }
+
+      if (wholeCartWindow.inWindow === 1) {
+        wholeCartWindow.classList.remove("hide");
+      }
+
+      cartIcon.addEventListener("mouseover", () => {
+        if (wholeCartWindow.classList.contains("hide"))
+          wholeCartWindow.classList.remove("hide");
+      });
+
+      cartIcon.addEventListener("mouseleave", () => {
+        // if(wholeCartWindow.classList.contains('hide'))
+        setTimeout(() => {
+          if (wholeCartWindow.inWindow === 0) {
+            wholeCartWindow.classList.remove("hide");
+          }
+        }, 500);
+      });
+
+      wholeCartWindow.addEventListener("mouseover", () => {
+        wholeCartWindow.inWindow = 1;
+      });
+      wholeCartWindow.addEventListener("mouseleave", () => {
+        wholeCartWindow.inWindow = 1;
+        wholeCartWindow.classList.remove("hide");
+      });
+
+      function updateCartUI() {
+        const cartWrapper = document.querySelector(".cart-wrapper");
+        cartWrapper.innerHTML = "";
+        const items = LocalCart.getLocalCartItems();
+        if (items === null) return;
+        let count = 0;
+        let total = 0;
+        let tax = 0;
+        let totalito = 0;
+        for (const [key, value] of items.entries()) {
+          const cartItem = document.createElement("div");
+          cartItem.classList.add("cart-item");
+          let price = value.price * value.quantity;
+          price = Math.round(price * 100) / 100;
+          count += 1;
+          total += price;
+          total = Math.round(total * 100) / 100;
+          tax = total * 0.1;
+          totalito = tax + total;
+          cartItem.innerHTML = `
+                      <img src="${value.img}" alt="">
+                      <div class="details">
+                          <h3>${value.name}</h3>
+                          <p>
+                              <span class="description">${value.des}</span>
+                              <span class="quantity">${value.quantity}</span>
+                              <span class="price"> $${price}</span>
+                          </p>
+                      </div>
+                      <div class="cancel"><span class="fas fa-window-close"></span></div> 
+
+              `;
+          cartItem.lastElementChild.addEventListener("click", () => {
+            LocalCart.removeItemFromCart(key);
+          });
+          cartWrapper.append(cartItem);
+        }
+        if (count > 0) {
+          cartIcon.classList.add("non-empty");
+          let root = document.querySelector(":root");
+          root.style.setProperty("--after-content", `"${count}"`);
+          const subtotal = document.querySelector(".subtotal");
+          const taxito = document.querySelector(".tax");
+          const totalitito = document.querySelector(".total");
+
+          subtotal.innerHTML = `Subtotal: $${total}`;
+          taxito.innerHTML = `Tax: $${tax}`;
+          totalitito.innerHTML = `Total: $${totalito}`;
+          sessionStorage.setItem("total", totalito);
+        } else {
+          cartIcon.classList.remove("non-empty");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateCartUI();
+      });
+    </script>
+  </body>
+</html>
