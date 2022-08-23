@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./img/bag.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800&family=Square+Peg&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <meta name="description" content="clothing brand" />
+    <title>SwagEShop</title>
+  </head>
+  <body>
+    <header class="main-head">
+      <nav>
+        <div class="logo">
+          <img src="./img/bag.png" alt="" />
+          <h1 id="logo">SwagEShop</h1>
+        </div>
+
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <!-- <li><a href="#account">Account</a></li> -->
+          <li class="shopping-cart">
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+            <input  class="shopping-icon" type="image" src="./img/shopping-cart.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            
+            <!-- <a class="shopping-icon" href="#"
+              ><img src="./img/shopping-cart.png" alt="" 
+            /></a> -->
+            <!-- <div class="whole-cart-window hide">
+              <h2>Shopping Cart</h2>
+              <div class="cart-wrapper">
+               
+              </div>
+              <div class="subtotal">Subtotal: $0.00</div>
+              <div class="checkout"><a href="./checkout.html">Checkout</a></div>
+              <div class="view-cart"> <a href="./shopping-cart.html">View Cart</a></div>
+            </div> -->
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+    <section id="home">
+      <div class="hero-text">
+        <h2>Give your live a new swag</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+          Numquam, necessitatibus.
+        </p>
+        <a href="./products.html">
+          <button class="explore-now">Explore Now</button>
+        </a>
+      </div>
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <!-- <div class="numbertext">1 / 4</div> -->
+          <img
+            src="./img/7a1400c4-24ab-4541-bee2-831839478359.jpg"
+            style="width: 100%"
+          />
+          <!-- <div class="text">Caption Text</div> -->
+        </div>
+
+        <div class="mySlides fade">
+          <!-- <div class="numbertext">2 / 4</div> -->
+          <img src="./img/ESTÚPIDO NIÑERO[Bajifuyu].jpg" style="width: 100%" />
+          <!-- <div class="text">Caption Two</div> -->
+        </div>
+
+        <div class="mySlides fade">
+          <!-- <div class="numbertext">3 / 4</div> -->
+          <img src="img/green.jpg" style="width: 100%" />
+          <!-- <div class="text">Caption Three</div> -->
+        </div>
+        <div class="mySlides fade">
+          <!-- <div class="numbertext">4 / 4</div> -->
+          <img src="img/💌.jpg" style="width: 100%" />
+          <!-- <div class="text">Caption Three</div> -->
+        </div>
+
+        <!-- Next and previous buttons -->
+        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+        <!-- <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div> -->
+      </div>
+      <br />
+
+      <!-- The dots/circles -->
+    </section>
+    <section class="products">
+      <h1>Exclusive Products</h1>
+      <img class="underline" src="./img/11 Yellow Paint Brush Strokes (PNG Transparent) _ OnlyGFX_com (1).png" alt="">
+
+      <ul class="exc-pro">
+          <li>
+              <button>
+                    <div class="exclusive-product-card-1 card">
+                        <img
+                        src="./img/Aolamegs Men T Shirt Color Block Print 3 color Optional Tee Shirts Simple - Army green _ XL.jpg"
+                        alt=""
+                    />
+                    </div> 
+                    <h2>Cream Striped T-Shirt</h2>
+                    <div class="rating">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star-half-empty (2).png" alt="" class="star">
+                        
+                        
+                    </div>
+                    <h3>$25</h3>
+                </button>
+            
+            </li>
+            <li>
+                <button>
+                    <div class="exclusive-product-card-2 card">
+                        <img src="./img/Brandit Pure Vintage, pantalones del cargo Negro.jpg" alt="" />
+                    </div>
+                    <h2>Black Cargo Pants</h2>
+                    <div class="rating">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star-half-empty (2).png" alt="" class="star">
+                        
+                        
+                    </div>
+                    <h3>$55</h3>
+                </button>
+            
+            </li>
+            <li>
+                <button>
+                    <div class="exclusive-product-card-3 card">
+                        <img
+                        src="./img/Nike Men's Court Royale 2 Mid High Top Casual Sneakers from Finish Line & Reviews - Finish Line Men's Shoes - Men - Macy's.jpg"
+                        alt=""
+                        />
+                    </div>
+                    <h2>Nike Mid Blazers </h2>
+                    <div class="rating">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star-half-empty (2).png" alt="" class="star">
+                        
+                        
+                    </div>
+                    <h3>$95</h3>
+                </button>
+            
+            </li>
+        </ul>
+        <a href="./products.html" class="see-more">See More</a>
+
+      <h1>Latest Products</h1>
+      <img class="underline" src="./img/11 Yellow Paint Brush Strokes (PNG Transparent) _ OnlyGFX_com (1).png" alt="">
+      <ul class="latest-pro">
+          <li>
+              <button>
+                  <div class="latest-product-card-1 card">
+                      <img
+                      src="./img/Aolamegs Men T Shirt Color Block Print 3 color Optional Tee Shirts Simple - Army green _ XL.jpg"
+                      alt=""
+                      />
+                    </div>
+                    <h2>Cream Striped T-Shirt</h2>
+                    <div class="rating">
+                      <img src="./img/star (1).png" alt="" class="star">
+                      <img src="./img/star (1).png" alt="" class="star">
+                      <img src="./img/star (1).png" alt="" class="star">
+                      <img src="./img/star (1).png" alt="" class="star">
+                      <img src="./img/star-half-empty (2).png" alt="" class="star">
+      
+                      
+                  </div>
+                  <h3>$25</h3>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <div class="latest-product-card-2 card">
+                    <img src="./img/Brandit Pure Vintage, pantalones del cargo Negro.jpg" alt="" />
+        
+                    </div>
+                    <h2>Black Cargo Pants</h2>
+                    <div class="rating">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star-half-empty (2).png" alt="" class="star">
+        
+                        
+                    </div>
+                    <h3>$55</h3>
+                </button>
+            </li>
+            <li>
+                <button>
+                    <div class="latest-product-card-3 card">
+                        <img
+                        src="./img/Nike Men's Court Royale 2 Mid High Top Casual Sneakers from Finish Line & Reviews - Finish Line Men's Shoes - Men - Macy's.jpg"
+                        alt=""
+                        />
+                    </div>
+                    <h2>Nike Mid Blazers </h2>
+                    <div class="rating">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star (1).png" alt="" class="star">
+                        <img src="./img/star-half-empty (2).png" alt="" class="star">
+        
+                        
+                    </div>
+                    <h3>$95</h3>
+                </button>
+
+
+            </li>
+        
+        </ul>
+        <a href="./products.html" class="see-more">See More</a>
+      </div>
+    </section>
+    <section class="limited-time-offer">
+        <div class="images">
+            <img class="camisa-negra camisas" src="./img/PHOTO-1of.png" alt="">
+            <img class="camisa-cielo camisas" src="./img/PHOTO-3of.png" alt="">
+            <img class="camisa-azul camisas" src="./img/PHOTO-2of .png" alt="">
+            <img class="gorra" src="./img/PHOTO-4of .png" alt="">
+            <img class="gafitas" src="./img/PHOTO-5of.png" alt="">        </div>
+        <div class="textou">
+            <h3>Limited Time Offer!</h3>
+            <h2>Hat + T-Shirt + Glasses</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, libero?</p>
+            <a href="./products.html" class="explore-limited">
+                <button class="explore-now">Explore Now</button>
+            </a>
+        </div>
+    </section>
+    <section class="reviews">
+      <div class="cards">
+        <div class="card-review">
+          <img class="quo" src="./img/quotation-mark.png" alt="">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur ut officiis, fugiat asperiores ex, reprehenderit quod odit beatae voluptatum rerum recusandae deleniti pariatur modi dolor, repellat omnis nam iure dolorem?</p>
+          <div class="rating">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star-half-empty (2).png" alt="" class="star">
+          </div>
+          <img class="picture" src="./img/photo-1507003211169-0a1dd7228f2d.jpg" alt="">
+          <h3>Pepe Ganga</h3>
+        </div>
+        <div class="card-review">
+          <img class="quo" src="./img/quotation-mark.png" alt="">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur ut officiis, fugiat asperiores ex, reprehenderit quod odit beatae voluptatum rerum recusandae deleniti pariatur modi dolor, repellat omnis nam iure dolorem?</p>
+          <div class="rating">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star-half-empty (2).png" alt="" class="star">
+          </div>
+          <img class="picture" src="./img/photo-1438761681033-6461ffad8d80.jpg" alt="">
+          <h3>Raquel Murillo</h3>
+        </div>
+        <div class="card-review">
+          <img class="quo" src="./img/quotation-mark.png" alt="">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur ut officiis, fugiat asperiores ex, reprehenderit quod odit beatae voluptatum rerum recusandae deleniti pariatur modi dolor, repellat omnis nam iure dolorem?</p>
+          <div class="rating">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star (1).png" alt="" class="star">
+            <img src="./img/star-half-empty (2).png" alt="" class="star">
+          </div>
+          <img class="picture" src="./img/photo-1500648767791-00dcc994a43e.jpg" alt="">
+          <h3>Eduardo Lugo</h3>
+        </div>
+
+      </div>
+
+    </section>
+    <footer>
+      <div class="footer-wrapper">
+        <div class="footer-logo">
+          <img src="./img/bag.png" alt="" />
+          <h1 id="logo">SwagEShop &copy</h1>
+        </div>
+        <div class="footer-sm">
+          <ul class="social-media">
+            <li class="facebook"><a href="#"><img src="./img/facebook.png" alt=""></a></li>
+            <li>SwagEShop</li>
+            <li class="instagram"><a href="#"><img src="./img/instagram (1).png" alt=""></a></li>
+            <li>@swageshop_pr</li>
+            <li class="whatsapp"><a href="#"><img src="./img/whatsapp.png" alt=""></a></li>
+            <li>(939)-451-4525</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="./slideshow.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
